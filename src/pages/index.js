@@ -1,10 +1,9 @@
 import React from 'react'
 import { Button } from 'material-ui'
-import withRedux from 'next-redux-wrapper'
 import withRoot from '../enhancers/withRoot'
 import Layout from '../components/Layout'
 import * as counterActions from '../actions/counterActions'
-import configureStore from '../configureStore'
+import withRedux from '../enhancers/withRedux'
 
 const Index = ({ counter, increment }) => (
   <Layout>
@@ -18,6 +17,4 @@ const mapStateToProps = state => ({
   counter: state.counter.value,
 })
 
-export default withRedux(configureStore, mapStateToProps, counterActions)(
-  withRoot(Index)
-)
+export default withRedux(mapStateToProps, counterActions)(withRoot(Index))
