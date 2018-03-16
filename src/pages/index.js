@@ -1,9 +1,9 @@
 import React from 'react'
 import { Button } from 'material-ui'
-import withRoot from '../enhancers/withRoot'
-import * as counterActions from '../actions/counterActions'
-import withRedux from '../enhancers/withRedux'
 import { compose } from 'recompose'
+import withRoot from '~/enhancers/withRoot'
+import withRedux from '~/enhancers/withRedux'
+import * as counterActions from '~/actions/counterActions'
 
 const Index = ({ counter, increment }) => (
   <Button variant="raised" color="primary" onClick={increment}>

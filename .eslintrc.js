@@ -28,5 +28,8 @@ module.exports = {
         },
       ],
     },
+    "import/resolver": {
+      "babel-plugin-root-import": {}
+    }
   }
   
