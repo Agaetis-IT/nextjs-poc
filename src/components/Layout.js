@@ -17,7 +17,7 @@ const styles = ({ theme }) => ({
 
 const Layout = class extends React.Component {
   state = {
-    open: true,
+    open: false,
   }
 
   toggleDrawer = () => {
