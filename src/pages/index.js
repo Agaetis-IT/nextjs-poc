@@ -4,6 +4,7 @@ import withRoot from '../enhancers/withRoot'
 import Layout from '../components/Layout'
 import * as counterActions from '../actions/counterActions'
 import withRedux from '../enhancers/withRedux'
+import { compose } from 'recompose'
 
 const Index = ({ counter, increment }) => (
   <Layout>
@@ -17,4 +18,5 @@ const mapStateToProps = state => ({
   counter: state.counter.value,
 })
 
-export default withRedux(mapStateToProps, counterActions)(withRoot(Index))
+const enhancer = compose(withRoot(), withRedux(mapStateToProps, counterActions))
+export default enhancer(Index)

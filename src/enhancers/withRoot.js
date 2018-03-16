@@ -5,7 +5,7 @@ import { JssProvider } from 'react-jss'
 import CssBaseline from 'material-ui/CssBaseline'
 import getPageContext from '../getPageContext'
 
-function withRoot(Component) {
+const withRoot = () => Component => {
   class WithRoot extends React.Component {
     constructor(props, context) {
       super(props, context)
