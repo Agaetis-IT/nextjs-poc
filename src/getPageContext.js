@@ -1,20 +1,16 @@
 /* eslint-disable no-underscore-dangle */
-
-import { SheetsRegistry } from 'jss'
+import { create, SheetsRegistry } from 'jss'
+import jssPreset from 'jss-preset-default'
 import { createGenerateClassName } from 'material-ui/styles'
 import theme from './theme'
 
-function createPageContext() {
-  return {
-    theme,
-    // This is needed in order to deduplicate the injection of CSS in the page.
-    sheetsManager: new Map(),
-    // This is needed in order to inject the critical CSS.
-    sheetsRegistry: new SheetsRegistry(),
-    // The standard class name generator.
-    generateClassName: createGenerateClassName(),
-  }
-}
+const createPageContext = () => ({
+  theme,
+  jss: create(jssPreset()),
+  generateClassName: createGenerateClassName(),
+  sheetsManager: new Map(),
+  sheetsRegistry: new SheetsRegistry(),
+})
 
 export default function getPageContext() {
   // Make sure to create a new context for every server-side request so that data

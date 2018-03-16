@@ -1,6 +1,6 @@
 import React from 'react'
 import Document, { Head, Main, NextScript } from 'next/document'
-import JssProvider from 'react-jss/lib/JssProvider'
+import { JssProvider } from 'react-jss'
 import flush from 'styled-jsx/server'
 import getPageContext from '../getPageContext'
 
@@ -37,8 +37,9 @@ MyDocument.getInitialProps = ctx => {
   const pageContext = getPageContext()
   const page = ctx.renderPage(Component => props => (
     <JssProvider
-      registry={pageContext.sheetsRegistry}
+      jss={pageContext.jss}
       generateClassName={pageContext.generateClassName}
+      registry={pageContext.sheetsRegistry}
     >
       <Component pageContext={pageContext} {...props} />
     </JssProvider>
