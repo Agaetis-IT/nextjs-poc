@@ -4,6 +4,7 @@ import { MuiThemeProvider } from 'material-ui/styles'
 import { JssProvider } from 'react-jss'
 import CssBaseline from 'material-ui/CssBaseline'
 import getPageContext from '../getPageContext'
+import Layout from '../components/Layout'
 
 const withRoot = () => Component => {
   class WithRoot extends React.Component {
@@ -37,7 +38,9 @@ const withRoot = () => Component => {
           >
             {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
             <CssBaseline />
-            <Component {...this.props} />
+            <Layout>
+              <Component {...this.props} />
+            </Layout>
           </MuiThemeProvider>
         </JssProvider>
       )

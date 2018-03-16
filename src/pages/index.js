@@ -1,17 +1,14 @@
 import React from 'react'
 import { Button } from 'material-ui'
 import withRoot from '../enhancers/withRoot'
-import Layout from '../components/Layout'
 import * as counterActions from '../actions/counterActions'
 import withRedux from '../enhancers/withRedux'
 import { compose } from 'recompose'
 
 const Index = ({ counter, increment }) => (
-  <Layout>
-    <Button variant="raised" color="primary" onClick={increment}>
-      counter: {counter}
-    </Button>
-  </Layout>
+  <Button variant="raised" color="primary" onClick={increment}>
+    counter: {counter}
+  </Button>
 )
 
 const mapStateToProps = state => ({
