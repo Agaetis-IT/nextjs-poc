@@ -8,8 +8,8 @@ const styles = theme => ({
   },
 })
 
-const MenuLink = ({ href, children }) => (
-  <Link href={href}>
+const MenuLink = ({ href, prefetch, children }) => (
+  <Link href={href} prefetch={prefetch}>
     <ListItem button>
       <ListItemText primary={children} />
     </ListItem>
@@ -24,8 +24,12 @@ const CustomDrawer = ({ classes, ...props }) => (
     {...props}
   >
     <List>
-      <MenuLink href="/">Home</MenuLink>
-      <MenuLink href="/about">About</MenuLink>
+      <MenuLink href="/" prefetch>
+        Home
+      </MenuLink>
+      <MenuLink href="/about" prefetch>
+        About
+      </MenuLink>
     </List>
   </Drawer>
 )
